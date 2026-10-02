@@ -9,20 +9,21 @@
 </head>
 
 <body onload="Start()">
-    <h1>tic-tac-toe: remastered: remake</h1>
+    <center>
+    <h1>Tic-Tac-Toe</h1>
     <noscript>no JavaScript, no game... Please activate JavaScript in your browser.</noscript>
     <div>
-        <h2> main menu</h2>
-        <button onclick="CreateGame()">Create Game</button>
-        <input class="gameCode" id="gameCode" type="password" placeholder="Enter Game Code or leave blank for random matchmaking..." maxlength=6>
-        <button onclick="JoinGame()">Join Game</button>
+        <h2>Welcome!</h2>
+        <button class="glass" onclick="CreateGame()">Create Game</button>
+        <input class="darkglass" id="gameCode" type="password" placeholder="Invite code..." maxlength=6>
+        <button  class="glass"onclick="JoinGame()">Join Game</button>
     </div>
     <div>
-        <h2>account</h2>
-        <input class="username" id="username" type="text" placeholder="Enter your username..." minlength=3 maxlength=16>
-        <button onclick="Save()">Save</button>
+        <h2>Details!</h2>
+        <input class="darkglass" id="username" type="text" placeholder="Enter your username..." minlength=3 maxlength=16>
+        <button onclick="Save()" class="glass">Save</button>
     </div>
-
+    </center>
 </body>
 
 <script src="network.js"></script>
