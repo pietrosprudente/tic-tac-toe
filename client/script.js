@@ -1,6 +1,3 @@
-const wsUri = "ws://localhost:8000/";
-const websocket = new WebSocket(wsUri);
-
 var username = "Player" + RandomRange(1000, 9999);
 
 function Start(){
@@ -9,16 +6,21 @@ function Start(){
 
 function CreateGame() {
     const message = {
-        id: 0,
+        id: clientToServerMessageIds.CREATE_GAME,
         username: username
     }
     websocket.send(JSON.stringify(message));
 }
 
-function JoinGame(code) {
+function GetGameCode(){
+    return document.getElementById("gameCode").value;
+}
+
+function JoinGame() {
     const message = {
-        id: 1,
-        code: code
+        id: clientToServerMessageIds.JOIN_GAME,
+        username: username,
+        code: GetGameCode(),
     }
     websocket.send(JSON.stringify(message));
 }

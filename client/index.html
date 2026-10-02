@@ -14,7 +14,7 @@
     <div>
         <h2> main menu</h2>
         <button onclick="CreateGame()">Create Game</button>
-        <input type="password" placeholder="Enter Game Code or leave blank for random matchmaking..." maxlength=6>
+        <input class="gameCode" id="gameCode" type="password" placeholder="Enter Game Code or leave blank for random matchmaking..." maxlength=6>
         <button onclick="JoinGame()">Join Game</button>
     </div>
     <div>
@@ -25,5 +25,6 @@
 
 </body>
 
+<script src="network.js"></script>
 <script src="script.js"></script>
 </html>
