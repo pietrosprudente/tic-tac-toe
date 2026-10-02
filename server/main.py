@@ -1,9 +1,11 @@
 import asyncio
 import websockets
 import json
-import random
+import uuid
+
 from network import ClientToServerMessageIds, ServerToClientMessageIds
 from room import Room
+from player import Player
 rooms = {}
 
 async def handler(connection):
@@ -17,8 +19,7 @@ async def handler(connection):
                 case ClientToServerMessageIds.CREATE_GAME:
                     print("Client requested to create a game with username:", message["username"])
                     room = CreateRoom("waiting")
-                    room.addPlayer(connection, message["username"], 1)
-                    rooms[room.code] = room
+                    room.addPlayer(Player(connection, message["username"], 1))
                     await connection.send(json.dumps({
                         "id": ServerToClientMessageIds.GAME_CREATED,
                         "code": room.code
@@ -26,20 +27,24 @@ async def handler(connection):
                 case ClientToServerMessageIds.JOIN_GAME:
                     print("Client requested to join a game with username:", message["username"], "with code:", message["code"])
                     code = message["code"]
-                    if rooms[code] is None:
+                    if code not in rooms:
                         await connection.send(json.dumps({
                             "id": ServerToClientMessageIds.ERROR,
                             "message": "Room not found"
                         }))
                         pass
-                    rooms[code].addPlayer(connection, message["username"], 2)
+                    rooms[code].addPlayer(Player(connection, message["username"], 2))
                     await connection.send(json.dumps({
                         "id": ServerToClientMessageIds.GAME_JOINED,
                         "otherPlayer": rooms[code].players[0].username,
                         "code": code
                     }))
         except Exception as e:
-            print("Error occurred:", e, "Closing connection")
+            print(e)
+            # await connection.send(json.dumps({
+            #                             "id": ServerToClientMessageIds.ERROR,
+            #                             "message": "Room not found"
+            #                         }))
             await connection.close()
             break;
     print("Client disconnected", connection.remote_address)
@@ -53,9 +58,9 @@ def start():
     asyncio.run(startAsync())
 
 
-def CreateRoom(status):
-    code = str(random.randint(100000, 999999))
-    if(rooms[code] is None):
+def  CreateRoom(status):
+    code = str(uuid.uuid4())[:6]
+    if code not in rooms:
         room = Room(code, status)
         rooms[code] = room
         return room
