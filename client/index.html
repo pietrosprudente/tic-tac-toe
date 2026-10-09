@@ -28,7 +28,8 @@
         <div>
             <div>
                 <label>Username</label>
-                <input required name="username" id="username" placeholder="Enter name..." minlength="3" maxlength="16" value="COOKIE" type="text">
+                <input required name="username" id="username" placeholder="Enter name..." minlength="3" maxlength="16"
+                    value="COOKIE" type="text">
                 <label>Avatar</label>
                 <select required name="pfp" id="pfp">
                 </select>
@@ -43,25 +44,27 @@
         </div>
     </div>
     <div class="game" id="game">
-        <div><img width="64" height="64" id="op-pfp" src="assets/ui/profiles/MKDSEmblemTeamBlue.png">
-            <p id="op-u">opponent</p>
-            <img src="assets/ui/board.png" width="150px">
+        <div>
+            <label id="op-u">opponent</p>
+                <img width="64" height="64" id="op-pfp" src="assets/ui/profiles/MKDSEmblemTeamBlue.png">
         </div>
 
+        <img src="assets/ui/board.png" width="150px">
         <div class="board" id="board">
-            <button>x</button>
-            <button>o</button>
-            <button>x</button>
-            <button>o</button>
-            <button>x</button>
-            <button>o</button>
-            <button>x</button>
-            <button>o</button>
-            <button>x</button>
+            <button onclick="place(0)">x</button>
+            <button onclick="place(1)">o</button>
+            <button onclick="place(2)">x</button>
+            <button onclick="place(3)">o</button>
+            <button onclick="place(4)">x</button>
+            <button onclick="place(5)">o</button>
+            <button onclick="place(6)">x</button>
+            <button onclick="place(7)">o</button>
+            <button onclick="place(8)">x</button>
         </div>
 
-        <div> <img width="64" height="64" id="mepfp" src="assets/ui/profiles/MKDSEmblemTeamRed.png">
-            <p id="me">player</p>
+        <div>
+            <label id="me">player</p>
+            <img width="64" height="64" id="mepfp" src="assets/ui/profiles/MKDSEmblemTeamRed.png">
         </div>
     </div>
     <center>
@@ -73,4 +76,5 @@
 <script src="network.js"></script>
 <script src="script.js"></script>
 <script src="game.js"></script>
+
 </html>

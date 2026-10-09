@@ -59,11 +59,11 @@ async def handler(connection):
     print("Client disconnected", connection.remote_address)
 
 def getRoomFromPlayer(connection):
-    myRoom = Room()
-    for x in len(rooms.items):
+    myRoom = None
+    for x in len(rooms):
         if rooms[x].hostPlayer == connection or rooms[x].guestPlayer == connection:
-            return Room(rooms[x]);
-
+            myRoom = Room(rooms[x]);
+    return myRoom
 
 async def startAsync():
     async with websockets.serve(handler, "localhost", 8000):
