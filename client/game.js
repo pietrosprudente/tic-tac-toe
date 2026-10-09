@@ -7,5 +7,5 @@ function place(spot){
 }
 
 function updateBoard(message){
-    
+    console.log(message);
 }

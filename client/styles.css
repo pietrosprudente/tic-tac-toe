@@ -13,7 +13,7 @@ body {
 .sidenav {
     text-align: left;
     height: 100%;
-    width: 250px;
+    width: 200px;
     position: fixed;
     z-index: 1;
     top: 0;
@@ -22,8 +22,13 @@ body {
     image-rendering: pixelated;
     background-repeat: repeat-y;
     background-size: 100% 10%;
-    overflow-x: visible;
-    padding-top: 20px;
+    overflow-x:visible;
+    padding-top: 0px;
+}
+
+.sidenav label{
+    font-size: small;
+    text-align:  left;
 }
 
 .sidenav button {

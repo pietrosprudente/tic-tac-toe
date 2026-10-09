@@ -6,8 +6,8 @@ class Room:
     def __init__(self, _code, _status):
         self.code = _code
         self.status = _status
-        self.hostPlayer = Player()
-        self.guestPlayer = Player()
+        self.hostPlayer = (Player);
+        self.guestPlayer = (Player)
         self.game = Game()
 
     def getOppositePlayer(self, connection):
