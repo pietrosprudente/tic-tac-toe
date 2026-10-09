@@ -9,23 +9,68 @@
 </head>
 
 <body onload="Start()">
+    <div class="sidenav" id="sidenav">
+        <h2>alpha v0.0.1</h2>
+        <a href="index.html" style="color: white;">
+            <h1>Tic-Tac-Toe</h1>
+            <button>Home</button>
+        </a>
+        <br>
+        <h3>Play</h3>
+        <div>
+            <button onclick="CreateGame()">Create Game</button>
+            <label>Invite Code</label>
+            <input id="gamecode" type="password" placeholder="Enter Code (max 6)" maxlength="6">
+            <button onclick="JoinGame()">Join Game</button>
+        </div>
+
+        <h3>Account</h3>
+        <div>
+            <div>
+                <label>Username</label>
+                <input required name="username" id="username" placeholder="Enter name..." minlength="3" maxlength="16" value="COOKIE" type="text">
+                <label>Avatar</label>
+                <select required name="pfp" id="pfp">
+                </select>
+            </div>
+
+            <button onclick="Save()">Save</button>
+        </div>
+        <h3>About</h3>
+        <div>
+            <p>it's tic-tac-toe</p>
+
+        </div>
+    </div>
+    <div class="game" id="game">
+        <div><img width="64" height="64" id="op-pfp" src="assets/ui/profiles/MKDSEmblemTeamBlue.png">
+            <p id="op-u">opponent</p>
+            <img src="assets/ui/board.png" width="150px">
+        </div>
+
+        <div class="board" id="board">
+            <button>x</button>
+            <button>o</button>
+            <button>x</button>
+            <button>o</button>
+            <button>x</button>
+            <button>o</button>
+            <button>x</button>
+            <button>o</button>
+            <button>x</button>
+        </div>
+
+        <div> <img width="64" height="64" id="mepfp" src="assets/ui/profiles/MKDSEmblemTeamRed.png">
+            <p id="me">player</p>
+        </div>
+    </div>
     <center>
-    <h1>Tic-Tac-Toe</h1>
-    <noscript>no JavaScript, no game... Please activate JavaScript in your browser.</noscript>
-    <div>
-        <h2>Welcome!</h2>
-        <button class="glass" onclick="CreateGame()">Create Game</button>
-        <input class="darkglass" id="gameCode" type="password" placeholder="Invite code..." maxlength=6>
-        <button  class="glass"onclick="JoinGame()">Join Game</button>
-    </div>
-    <div>
-        <h2>Details!</h2>
-        <input class="darkglass" id="username" type="text" placeholder="Enter your username..." minlength=3 maxlength=16>
-        <button onclick="Save()" class="glass">Save</button>
-    </div>
+        <noscript>no JavaScript, no game... Please activate JavaScript in your browser.</noscript>
     </center>
 </body>
 
+<script src="dataTypes.js"></script>
 <script src="network.js"></script>
 <script src="script.js"></script>
+<script src="game.js"></script>
 </html>

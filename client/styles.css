@@ -10,22 +10,71 @@ body {
     background-image: url("assets/ui/bg.jpg");
 }
 
-.glass {
-    border-radius: 25px;
-    background-image: url(assets/ui/glass.jpg);
-    background-position: left top;
-    background-repeat: repeat;
-    padding: 10px;
-    opacity: 75%;
+.sidenav {
+    text-align: left;
+    height: 100%;
+    width: 250px;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    left: 0;
+    background-image: url(assets/ui/pattern.png);
+    image-rendering: pixelated;
+    background-repeat: repeat-y;
+    background-size: 100% 10%;
+    overflow-x: visible;
+    padding-top: 20px;
 }
 
-.darkglass {
-    border-radius: 25px;
-    background-image: url(assets/ui/glass.jpg);
-    background-position: left top;
-    background-repeat: repeat;
-    outline-color: white;
-    padding: 10px;
-    width: 16%;
-    opacity: 70%;
+.sidenav button {
+    color: white;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition-duration: 0.2s;
+    text-align: left;
+    width: 85%;
+}
+
+.sidenav button:hover {
+    background-color: rgba(255, 255, 255, 0.473);
+    transition-duration: 0.2s;
+}
+
+.sidenav input {
+    color: white;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    transition-duration: 0.2s;
+    text-align: right;
+    width: 50%;
+    outline: none;
+}
+
+.sidenav input:hover {
+    background-color: rgba(255, 255, 255, 0.473);
+    transition-duration: 0.2s;
+}
+
+.game {
+    image-rendering: pixelated;
+    position: fixed;
+    left: 50%;
+    right: 50%;
+}
+
+.board {
+    position: fixed;
+    display: grid;
+    grid-template-columns: max-content max-content max-content;
+    grid-template-rows: max-content max-content max-content;
+}
+
+@media screen and (max-height: 450px) {
+    .sidenav {
+        padding-top: 15px;
+    }
+
+    .sidenav a {
+        font-size: 18px;
+    }
 }
